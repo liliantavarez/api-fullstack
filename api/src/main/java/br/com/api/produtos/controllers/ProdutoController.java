@@ -1,18 +1,12 @@
 package br.com.api.produtos.controllers;
 
+import br.com.api.produtos.dto.ProdutoRespostaModel;
 import br.com.api.produtos.model.ProdutoModel;
 import br.com.api.produtos.model.RespostaModel;
 import br.com.api.produtos.services.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /*
  Responsável por criar rotas e ter acesso a requisições do tipo:
@@ -26,31 +20,32 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class ProdutoController {
 
-  @Autowired
-  private ProdutoService produtoService;
+    @Autowired
+    private ProdutoService produtoService;
 
-  @GetMapping("/")
-  public String rota() {
-    return "Api de produtos funcionando";
-  }
 
-  @GetMapping("/listar")
-  public Iterable<ProdutoModel> listar() {
-    return produtoService.listarProdutos();
-  }
+    @GetMapping("/")
+    public String rota() {
+        return "Api de produtos funcionando";
+    }
 
-  @PostMapping("/cadastrar")
-  public ResponseEntity<?> cadastrar(@RequestBody ProdutoModel produto) {
-    return produtoService.cadastrarAtualizarProduto(produto, "cadastrar");
-  }
+    @GetMapping("/listar")
+    public Iterable<ProdutoRespostaModel> listar() {
+        return produtoService.listarProdutos();
+    }
 
-  @PutMapping("/atualizar")
-  public ResponseEntity<?> atualizar(@RequestBody ProdutoModel produto) {
-    return produtoService.cadastrarAtualizarProduto(produto, "atualizar");
-  }
+    @PostMapping("/cadastrar")
+    public ResponseEntity<?> cadastrar(@RequestBody ProdutoModel produto) {
+        return produtoService.cadastrarAtualizarProduto(produto, "cadastrar");
+    }
 
-  @DeleteMapping("/remover/{codigo}")
-  public ResponseEntity<RespostaModel> remover(@PathVariable Long codigo) {
-    return produtoService.removerProduto(codigo);
-  }
+    @PutMapping("/atualizar")
+    public ResponseEntity<?> atualizar(@RequestBody ProdutoModel produto) {
+        return produtoService.cadastrarAtualizarProduto(produto, "atualizar");
+    }
+
+    @DeleteMapping("/remover/{codigo}")
+    public ResponseEntity<RespostaModel> remover(@PathVariable Long codigo) {
+        return produtoService.removerProduto(codigo);
+    }
 }
