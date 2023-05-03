@@ -33,3 +33,13 @@ build/
 ### VS Code ###
 .vscode/
 /.vscode
+
+.idea
+/.idea
+/.idea/
+/api/.idea/
+/api/.vscode/
+/api/node_modules/
+/client/.idea/
+/client/node_modules/
+/target/
