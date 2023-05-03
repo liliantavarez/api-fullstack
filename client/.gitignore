@@ -32,3 +32,4 @@ yarn-error.log*
 /api/node_modules/
 /client/.idea/
 /client/node_modules/
+package-lock.json

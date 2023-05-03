@@ -34,8 +34,6 @@ build/
 .vscode/
 /.vscode
 
-.idea
-/.idea
 /.idea/
 /api/.idea/
 /api/.vscode/
@@ -43,3 +41,4 @@ build/
 /client/.idea/
 /client/node_modules/
 /target/
+package-lock.json
