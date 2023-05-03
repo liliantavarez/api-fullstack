@@ -26,7 +26,6 @@ yarn-error.log*
 /.idea/
 .idea
 /.idea
-/.idea/
 /api/.idea/
 /api/.vscode/
 /api/node_modules/
