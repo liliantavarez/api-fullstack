@@ -15,11 +15,13 @@ function Formulario({
     return (
         <>
             {mensagemResposta === undefined || mensagemResposta === "" ? (<Alert className="alert"/>) :
-                status ?
-                    (<Alert className="alert" style={{display: "flex"}}
-                            message={mensagemResposta} type="success" showIcon closable/>) : (
-                        <Alert className="alert" style={{display: "flex"}}
-                               message={mensagemResposta} type="error" showIcon closable/>)
+                !status ? (
+                    <Alert className="alert" style={{display: "flex"}}
+                           message={mensagemResposta} type="error" showIcon
+                       />) : (
+                    <Alert className="alert" style={{display: "flex"}}
+                           message={mensagemResposta} type="success" showIcon
+                      />)
             }
             <Form
                 fields={[
