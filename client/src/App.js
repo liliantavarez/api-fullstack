@@ -33,6 +33,9 @@ function App() {
     const limparFormulario = () => {
         setObjProduto(produto);
         setBtnCadastrar(true);
+        setTimeout(() => {
+            setmensagemResposta("")
+        }, 1500)
     };
 
     //Selecionar produto
@@ -51,12 +54,11 @@ function App() {
                 Accept: "application/json",
             },
         })
-            .then((response) => response.json())
+            .then((response) =>
+                response.json()
+            )
             .then((responseJson) => {
                 if (responseJson.mensagem !== undefined) {
-                    console.log("if cadastro: " + responseJson.mensagem)
-                    console.log("if status: " + status)
-                    console.log("if res: " + mensagemResposta)
                     setStatus(false)
                     setmensagemResposta(responseJson.mensagem);
                 } else {
@@ -98,6 +100,7 @@ function App() {
 
     // Atualizar produto
     const atualizarProduto = () => {
+
         fetch("http://localhost:8080/atualizar", {
             method: "PUT",
             body: JSON.stringify(objProduto),
